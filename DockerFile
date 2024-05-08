@@ -1,0 +1,17 @@
+# Use an official Solidity image as the base image
+FROM ethereum/solc:0.8.0
+
+# Set the working directory inside the container
+WORKDIR ./Server
+
+# Copy the entire project directory into the container
+COPY . .
+
+# Compile Solidity contracts (replace `your-contract.sol` with the actual filename)
+RUN solc --abi --bin your-contract.sol -o build/
+
+# Expose any ports needed by your application
+# EXPOSE 3000
+
+# Define the startup command
+# CMD ["npm", "start"]
